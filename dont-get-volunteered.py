@@ -65,7 +65,7 @@ def solution(src, dest):
 			tmp_set = tmp_set | yellCharge(p, set_conquered)
 			if dest in tmp_set:
 				return i
-			set_conquering = tmp_set
+		set_conquering = tmp_set
 	return 0
 
 print(solution(int(argv[1]), int(argv[2])))

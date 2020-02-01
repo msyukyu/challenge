@@ -10,11 +10,11 @@ class Solver:
 		
 	def whereAmI(self, pos):
 		x = pos % self.x
-		y = pos // self.y
+		y = pos // self.x
 		return x, y
 		
 	def iAmHere(self, x, y):
-		return self.y * y + x
+		return self.x * y + x
 		
 	def canGoThere(self, x, y, cost):
 		flag = self.flag
@@ -82,3 +82,8 @@ def solution(map):
 	if fsol != -1:
 		sol = fsol if sol == -1 else min(sol, fsol)
 	return sol
+
+print(str(solution([
+   [0, 1, 0, 1, 0, 0, 0], 
+   [0, 0, 0, 1, 0, 1, 0]
+])))
