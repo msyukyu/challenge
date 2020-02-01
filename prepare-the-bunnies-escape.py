@@ -22,7 +22,9 @@ class Solver:
 			return False
 		elif self.map[y][x] == 1:
 			flag = 1
-		if flag == 1 and self.fcost[y][x] != -1 and self.fcost[y][x] <= cost:
+		if flag == 1 and \
+			((self.fcost[y][x] != -1 and self.fcost[y][x] <= cost) or \
+			(self.cost[y][x] != -1 and self.cost[y][x] <= cost)):
 			return False
 		if flag == 0 and self.cost[y][x] != -1 and self.cost[y][x] <= cost:
 			return False
@@ -55,7 +57,8 @@ class Solver:
 			self.fcost[y][x] = cost
 		else:
 			self.cost[y][x] = cost
-		self.solve(self.iAmHere(x, y), cost)
+		if x != self.x - 1 or y != self.y - 1:
+			self.solve(self.iAmHere(x, y), cost)
 		if self.map[y][x] == 1:
 			self.flag = 0
 	
